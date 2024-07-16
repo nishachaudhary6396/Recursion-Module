@@ -1,0 +1,275 @@
+Q1 :- Print n to 1 by recursion?
+
+public class printnto1 {
+    public static void print(int n){
+        if(n==0) return;
+        System.out.println(n);
+        print(n-1);
+    }
+    public static void main(String[] args) {
+        int n = 5;
+        print(n);
+    }
+}
+
+Q2 :- Print 1 to n by recursion?
+
+import java.util.*;
+
+public class print1ton {
+
+    public static void print(int x,int n){
+            if(x>n) return;
+            System.out.println(x);
+            print(x+1,n);
+    }
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+       print(1,n);
+    }
+}
+
+Q3:-Print sum of 1 to n?
+
+public class printSumOf1ton {
+//    public static void sum(int n,int sum){
+//       if(n==0) {
+//           System.out.print(sum);
+//           return;
+//       }
+//
+//        sum(n-1,sum+n);
+//    }
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        sum(n,0);
+//    }
+public static int sum(int n){
+    if(n==1 || n==0) return 1;
+    int ans = n+sum(n-1);
+    return ans;
+}
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = sc.nextInt();
+        System.out.print(sum(n));
+    }
+}
+
+
+Q4:- Print the factorial of a given number by Recursion?
+
+import java.util.Scanner;
+public class FactorialNo {
+    public static int fact(int n){
+        if(n==1 || n==0) return 1;
+        int ans = n*fact(n-1);
+        return ans;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = sc.nextInt();
+        System.out.print(fact(n));
+    }
+}
+
+Q5:- Print the fibonacci Number by Recursion?
+
+import java.util.*;
+public class fibonacciNumber {
+    public static int fibo(int n){
+        if(n<=1) return n;
+            return fibo(n-1) + fibo(n-2);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(fibo(n));
+    }
+}
+
+Q6:- Power function (logarithmic) ?
+
+import java.util.Scanner;
+public class PrintPowLogarithmab {
+    public static int pow(int a , int b){
+        if(b==0) return 1;
+        int ans =  pow(a,b/2);
+        if(b%2==0) return ans * ans;
+        else return ans * ans *a;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(pow(a,b));
+    }
+}
+
+Q7:- Stair Path when with 1 or 2 step only?
+
+import java.util.*;
+public class StairPath {
+    public static int stair(int n){
+        if(n<=2) return n;
+        return stair(n-1)+ stair(n-2);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(stair(n));
+    }
+}
+
+
+Q8:- Stair Path when with 1 or 3 step only?
+
+public class stairPath1or3 {
+    public static int stair(int n){
+        if(n<=2) return 1;
+        if(n==3) return 2;
+        return stair(n-1)+ stair(n-3);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(stair(n));
+    }
+}
+
+Q9:- Maze Path
+
+import java.util.*;
+public class MazePath {
+    public static int maze(int m , int n){
+        if(m==1 || n==1) return 1;
+        int rightWays = maze(m,n-1);
+        int downWays = maze(m-1,n);
+        return rightWays+downWays;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter row: ");
+        int n = sc.nextInt();
+        System.out.println("Enter col: ");
+        int m = sc.nextInt();
+        System.out.println(maze(m,n));
+    }
+}
+
+
+Q10:- Remove character a from the string?
+
+public class RemoveA {
+    public static void print(int i , String s, String ans){
+        if(i==s.length()) {
+            System.out.print(ans);
+            return;
+        }
+        if(s.charAt(i)!='a'){
+            ans+=s.charAt(i);
+        }
+        print(i+1,s,ans);
+    }
+    public static void main(String[] args) {
+        String s = "Nisha";
+        print(0,s,"");
+    }
+}
+
+
+Q11:- Subsets ?
+
+public class subsets {
+    public static void sub(int i, String s , String ans){
+        if(i==s.length()) {
+            System.out.println(ans);
+            return;
+        }
+        char ch = s.charAt(i);
+        sub(i+1,s,ans+ch);
+        sub(i+1,s,ans);
+    }
+    public static void main(String[] args) {
+        String s = "abcd";
+        sub(0,s,"");
+    }
+}
+
+Q12:- Permutations?
+
+import java.util.*;
+public class permutations {
+    public static void permutation( String ans,String s){
+        if(s.length()==0){
+            System.out.println(ans);
+            return;
+        }
+        for(int i = 0;i<s.length();i++){
+            char ch = s.charAt(i);
+            String left = s.substring(0,i);
+            String right = s.substring(i+1);
+            permutation(ans+ch,left+right);
+        }
+    }
+    public static void main(String[] args) {
+        String s = "abc";
+        permutation("",s);
+    }
+}
+
+Q13:- Greatest Common Divisor?
+
+import java.util.*;
+public class GCDRecursion {
+//    public static int hcf(int a,int b){
+//        for(int i=Math.min(a,b);i>=1;i--){
+//            if(a%i==0 && b%i==0) return i;
+//        }
+//        return 1;
+//    }
+    public static int hcf(int a , int b){
+        if(b%a==0) return a;
+        return hcf(b%a,a);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+//        System.out.print(hcf(a,b));
+          System.out.print(hcf(a,b));
+    }
+}
+
+Q14:- Generate all binary Strings of length n without consecutive '1's.
+
+import java.util.*;
+public class BinaryStringWithoutCpnsecutive1 {
+    public static void binaryString(String ans,int n){
+        int m = ans.length();
+        if(m==n) {
+            System.out.println(ans);
+            return;
+        }
+        if(m==0 || ans.charAt(m-1)=='0'){
+            binaryString(ans+0,n);
+            binaryString(ans+1,n);
+        }
+        else{
+            binaryString(ans+0,n);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        binaryString("",n);
+    }
+}
+
+
+
+
